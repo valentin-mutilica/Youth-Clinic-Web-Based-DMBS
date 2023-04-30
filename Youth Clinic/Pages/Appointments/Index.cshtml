@@ -1,0 +1,45 @@
+﻿@page
+@model Youth_Clinic.Pages.Appointments.IndexModel
+@{
+}
+
+<br>
+<h2>Appointments</h2>
+<br>
+
+<a class='btn btn-primary btn-sm' href='/Appointments/create'>New Appointment</a>
+<br>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Patient</th>
+            <th>Service</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Notes</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListAppointments)
+        {
+            <tr>
+                <td>@item.patient_name</td>
+                <td>@item.m_service</td>
+                <td>@item.doctor_in_charge</td>
+                <td>@item.appointment_date</td>
+                <td>@item.appointment_time</td>
+                <td>@item.appointment_notes</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Appointments/edit?id=@item.appointmentid">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Appointments/delete?id=@item.appointmentid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

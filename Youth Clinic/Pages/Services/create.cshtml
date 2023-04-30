@@ -1,0 +1,99 @@
+﻿@page
+@model Youth_Clinic.Pages.Services.createModel
+@{
+}
+
+<br>
+<h2>New Service</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form method="POST">
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Medical Service</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="medical_service" value="@Model.ServicesInfo.medical_service">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Doctor</label>
+        <div class="col-sm-6">
+            <select type="text" class="form-control" name="doctor_name" value="@Model.ServicesInfo.doctor_name">
+                <option value="">Select Doctor</option>
+                <option value="Maria Silva">Maria Silva</option>
+                <option value="Inês Teixeira">Inês Teixeira</option>
+                <option value="Pedro Santos">Pedro Santos</option>
+                <option value="Ana Costa">Ana Costa</option>
+                <option value="Miguel Pereira">Miguel Pereira</option>
+                <option value="Sofia Almeida">Sofia Almeida</option>
+                <option value="Ricardo Carvalho">Ricardo Carvalho</option>
+                <option value="João Fernandes">João Fernandes</option>
+                <option value="Carla Costa">Carla Costa</option>
+                <option value="António Ferreira">António Ferreira</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Department</label>
+        <div class="col-sm-6">
+            <select type=" text" class="form-control" name="service_department" value="@Model.ServicesInfo.service_department">
+                <option value="">Select Department</option>
+                <option value="Reconstructive Surgery">Reconstructive Surgery</option>
+                <option value="Body Sculpting">Body Sculpting</option>
+                <option value="Skin Rejuvenation">Skin Rejuvenation</option>
+                <option value="Cosmetic Surgery">Cosmetic Surgery</option>
+                <option value="Craniofacial Surgery">Craniofacial Surgery</option>
+                <option value="Hair Restoration">Hair Restoration</option>
+            </select>
+        </div>
+    </div>
+
+
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Description</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="service_description" value="@Model.ServicesInfo.service_description">
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Price</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="price" value="@Model.ServicesInfo.price">
+        </div>
+    </div>
+
+   
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

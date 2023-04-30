@@ -1,0 +1,40 @@
+﻿@page
+@model Youth_Clinic.Pages.Departments.IndexModel
+@{
+}
+
+<br>
+
+<h2>Departments</h2>
+
+
+
+
+<a class='btn btn-primary btn-sm' href='/Departments/create'>New Department</a>
+
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Department Name</th>
+
+            <th>Description</th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listDepartments)
+        {
+            <tr>
+                <td>@item.department_name</td>
+                <td>@item.description</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Departments/edit?id=@item.departmentid">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Departments/delete?id=@item.departmentid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br>

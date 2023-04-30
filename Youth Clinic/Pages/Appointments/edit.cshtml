@@ -1,0 +1,87 @@
+﻿@page
+@model Youth_Clinic.Pages.Appointments.editModel
+@{
+}
+
+<br>
+<h2>Appointment Details</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage  </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form method="POST">
+
+    <input type="hidden" name="id" value="@Model.AppointmentsInfo.appointmentid">
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Patient Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="patient_name" value="@Model.AppointmentsInfo.patient_name">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Service</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="m_service" value="@Model.AppointmentsInfo.m_service">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Doctor</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="doctor_in_charge" value="@Model.AppointmentsInfo.doctor_in_charge">
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Date</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" name="appointment_date" value="@Model.AppointmentsInfo.appointment_date">
+        </div>
+    </div>
+
+     <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Time</label>
+        <div class="col-sm-6">
+            <input type="time" class="form-control" name="appointment_time" value="@Model.AppointmentsInfo.appointment_time">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Notes</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="appointment_notes" value="@Model.AppointmentsInfo.appointment_notes">
+        </div>
+    </div>
+
+
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

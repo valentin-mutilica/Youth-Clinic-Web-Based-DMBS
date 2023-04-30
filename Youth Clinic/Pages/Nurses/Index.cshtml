@@ -1,0 +1,41 @@
+﻿@page
+@model Youth_Clinic.Pages.Nurses.IndexModel
+@{
+}
+
+<br>
+<h2>Nurses</h2>
+<br>
+<a class='btn btn-primary btn-sm' href='/Nurses/create'>New Nurse</a>
+<br>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Date of birth</th>
+            <th>Department</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listNurses)
+        {
+            <tr>
+                <td>@item.nurse_name</td>
+                <td>@item.gender</td>
+                <td>@item.date_of_birth</td>
+                <td>@item.nurse_department</td>
+                <td>@item.phone_number</td>
+                <td>@item.email</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Nurses/edit?id=@item.nurseid">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Nurses/delete?id=@item.nurseid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

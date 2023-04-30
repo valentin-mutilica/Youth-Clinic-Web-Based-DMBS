@@ -1,0 +1,62 @@
+﻿@page
+@model Youth_Clinic.Pages.Patients.IndexModel
+@{
+}
+
+
+<br>
+<h2>Patients</h2>
+<br>
+
+<!-- Search Bar
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Modern Search Bar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="search-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#fff" d="M14.656 14.657l5.504 5.505a1 1 0 1 1-1.414 1.414l-5.505-5.504A8.5 8.5 0 1 1 14.657 14.656z" /><path fill="#fff" opacity=".3" d="M7.5 14a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13z" /></svg>
+        </button>
+    </div>
+</body>
+</html>
+<br>
+-->
+
+<a class='btn btn-primary btn-sm' href='/Patients/create'>New Patient</a>
+<br>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Date of birth</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listPatients)
+        {
+            <tr>
+                <td>@item.patient_name</td>
+                <td>@item.gender</td>
+                <td>@item.date_of_birth</td>
+                <td>@item.phone_number</td>
+                <td>@item.email</td>
+                <td>@item.address</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Patients/edit?id=@item.patientid">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Patients/delete?id=@item.patientid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
